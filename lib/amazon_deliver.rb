@@ -1,11 +1,11 @@
 require 'rubygems'
 require 'net/https'
+require 'amazon_authentication'
+require 'amazon_url_generator'
 
-class AmazonDeliver
-  include AmazonAuthentication
-  include AmazonUrlGenerator
+module AmazonDeliver
 
-  def self.get(amazon_email, aws_access_key, aws_private_key)
+  def self.get(amazon_email)
     resource = AmazonUrlGenerator.create_query(amazon_email.from, amazon_email.to, amazon_email.subject, amazon_email.body)
 
     date = Time.new.localtime.strftime("%a, %d %b %Y %H:%M:%S %Z")
@@ -13,7 +13,7 @@ class AmazonDeliver
     http.use_ssl = true
     headers = {
       'Date' => date.to_s,
-      'x-Amzn-Authorization' => "AWS3-HTTPS AWSAccessKeyId=#{aws_access_key}, Algorithm=HmacSHA1, Signature=#{AmazonAuthentication.key(aws_private_key, date)}"
+      'x-Amzn-Authorization' => "AWS3-HTTPS AWSAccessKeyId=#{amazon_email.aws_access_key}, Algorithm=HmacSHA1, Signature=#{AmazonAuthentication.key(amazon_email.aws_secret_key, date)}"
     }
 
     http.start do |http|
