@@ -1,0 +1,5 @@
+How to use:
+
+e = AmazonEmail.new('from@email.com','to@email.com','Subject','Body')
+
+AmazonDeliver.get(e, 'aws_access_key', 'aws_private_key')
