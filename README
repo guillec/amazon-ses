@@ -1,8 +1,27 @@
-How to use:
+Amazon-ses is a gem that will allow you to interact with Amazon's Simple Email Service:
+
+Right now, there is only one thing you can do and that is, send a text email to a single user.
+
+How does it work:
+
+1. First make sure you validate the email that you are going to use in the "from" section of the email.
+http://docs.amazonwebservices.com/ses/latest/DeveloperGuide/
+
+2. Then build an emial:
 
 options = {:from => 'email@gmail.com', :to => 'email@gmail.com', :subject => 'Testing', :body => 'THis is a test', :aws_access_key => 'your acess key', :aws_secret_key => 'your secret key'}
 
 e = AmazonEmail.new(options) 
 
+
+3. Send it
+
 e.send
+
+
+_______________________________________
+
+Test and more features will be added soon!
+
+
 
