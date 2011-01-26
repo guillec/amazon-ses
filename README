@@ -1,5 +1,8 @@
 How to use:
 
-e = AmazonEmail.new('from@email.com','to@email.com','Subject','Body')
+options = {:from => 'email@gmail.com', :to => 'email@gmail.com', :subject => 'Testing', :body => 'THis is a test', :aws_access_key => 'your acess key', :aws_secret_key => 'your secret key'}
 
-AmazonDeliver.get(e, 'aws_access_key', 'aws_private_key')
+e = AmazonEmail.new(options) 
+
+e.send
+
