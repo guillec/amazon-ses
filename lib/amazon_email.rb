@@ -1,4 +1,7 @@
 require 'rubygems'
+require 'amazon_url_generator'
+require 'amazon_authentication'
+require 'amazon_deliver'
 
 class AmazonEmail
   include AmazonDeliver

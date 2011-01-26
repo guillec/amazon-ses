@@ -20,7 +20,6 @@ module AmazonDeliver
       req = Net::HTTP::Get.new(resource, headers)
       response = http.request(req)
       resp = response.body
-      p resp
     end
   end
    
