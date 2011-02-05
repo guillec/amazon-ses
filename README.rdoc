@@ -43,7 +43,7 @@ Currently you can:
       :template => File.new("sample_email.erb").read
     }
     
-    e = AmazonEmail.new(options) 
+    e = AmazonEmail.new(options_2) 
 
 2. Send it
 
