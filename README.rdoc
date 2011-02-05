@@ -7,13 +7,15 @@ Currently you can:
 * Send email with a .erb template 
 
 
-==How does it work:
+==Prerequisite
 
 1. First, make sure you validate the email that you are going to use in the "from" section of the email.
 
   http://docs.amazonwebservices.com/ses/latest/DeveloperGuide/
 
-2. Second, build email:
+==How does it work:
+
+1. Build email:
 
   * Raw email without a .erb template:
     You can achieve this by NOT specifying a :template in your options:
@@ -43,7 +45,7 @@ Currently you can:
     
     e = AmazonEmail.new(options) 
 
-3. Send it
+2. Send it
 
   e.send
 
