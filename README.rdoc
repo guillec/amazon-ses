@@ -9,38 +9,37 @@ Currently you can:
 
 ==How does it work:
 
-1. First make sure you validate the email that you are going to use in the "from" section of the email.
-http://docs.amazonwebservices.com/ses/latest/DeveloperGuide/
+1. First, make sure you validate the email that you are going to use in the "from" section of the email.
 
-2. Build Email:
+  http://docs.amazonwebservices.com/ses/latest/DeveloperGuide/
 
-* Raw email without a .erb template:
-You can achieve this by NOT specifying a :template in your options:
+2. Second, build email:
 
-options = {
-  :from => 'email@gmail.com', 
-  :to => 'email@gmail.com', 
-  :subject => 'Testing', 
-  :body => 'THis is a test', 
-  :aws_access_key => 'your acess key', 
-  :aws_secret_key => 'your secret key'
-}
+  * Raw email without a .erb template:
+    You can achieve this by NOT specifying a :template in your options:
 
-e = AmazonEmail.new(options) 
+    options = {
+      :from => 'email@gmail.com', 
+      :to => 'email@gmail.com', 
+      :subject => 'Testing', 
+      :body => 'THis is a test', 
+      :aws_access_key => 'your acess key', 
+      :aws_secret_key => 'your secret key'
+    }
 
-* Email that will use a .erb template:
-You can achieve this by specifying the location of you .erb file in the :template option:
+    e = AmazonEmail.new(options) 
 
-options_2 = { 
-:from => 'from@email.com', 
-:to => 'to@email.com', 
-:subject => 'This is the subject of the email',  
-:aws_access_key => "access_key_id",
-:aws_secret_key => "secret_access_key",
-:template => File.new("sample_email.erb").read
-}
+  * Email that will use a .erb template:
+    You can achieve this by specifying the location of you .erb file in the :template option:
 
-
+    options_2 = {  
+      :from => 'from@email.com', 
+      :to => 'to@email.com', 
+      :subject => 'This is the subject of the email',  
+      :aws_access_key => "access_key_id",
+      :aws_secret_key => "secret_access_key",
+      :template => File.new("sample_email.erb").read
+    }
 
 3. Send it
 
