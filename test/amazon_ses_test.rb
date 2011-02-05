@@ -17,8 +17,8 @@ class AmazonSesTest < Test::Unit::TestCase
     }
       
     options_2 = { 
-      :from => 'noreply@setlr.com', 
-      :to => 'gcarlos1@gmail.com', 
+      :from => 'from@email.com', 
+      :to => 'to@email.com', 
       :subject => 'This is the subject of the email',  
       :aws_access_key => "access_key_id",
       :aws_secret_key => "secret_access_key",
