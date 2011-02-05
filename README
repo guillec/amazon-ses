@@ -1,17 +1,45 @@
-Amazon-ses is a gem that will allow you to interact with Amazon's Simple Email Service:
+=amazon-ses 
+A gem for interfacing with Amazon's Simple Email Service
 
-Right now, there is only one thing you can do and that is, send a text email to a single user.
+==Features:
+Currently you can:
+* Send a basic raw text email.
+* Send email with a .erb template 
 
-How does it work:
+
+==How does it work:
 
 1. First make sure you validate the email that you are going to use in the "from" section of the email.
 http://docs.amazonwebservices.com/ses/latest/DeveloperGuide/
 
-2. Then build an emial:
+2. Build Email:
 
-options = {:from => 'email@gmail.com', :to => 'email@gmail.com', :subject => 'Testing', :body => 'THis is a test', :aws_access_key => 'your acess key', :aws_secret_key => 'your secret key'}
+* Raw email without a .erb template:
+You can achieve this by NOT specifying a :template in your options:
+
+options = {
+  :from => 'email@gmail.com', 
+  :to => 'email@gmail.com', 
+  :subject => 'Testing', 
+  :body => 'THis is a test', 
+  :aws_access_key => 'your acess key', 
+  :aws_secret_key => 'your secret key'
+}
 
 e = AmazonEmail.new(options) 
+
+* Email that will use a .erb template:
+You can achieve this by specifying the location of you .erb file in the :template option:
+
+options_2 = { 
+:from => 'noreply@setlr.com', 
+:to => 'gcarlos1@gmail.com', 
+:subject => 'This is the subject of the email',  
+:aws_access_key => "access_key_id",
+:aws_secret_key => "secret_access_key",
+:template => File.new("sample_email.erb").read
+}
+
 
 
 3. Send it
@@ -19,9 +47,34 @@ e = AmazonEmail.new(options)
 e.send
 
 
-_______________________________________
+== Install:
 
-Test and more features will be added soon!
+* sudo gem install amazon-ses
+
+== License:
+
+(The MIT License)
+
+Copyright (c) 2009 Luc Castera
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 

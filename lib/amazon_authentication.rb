@@ -1,7 +1,3 @@
-require 'rubygems'
-require 'openssl'
-require 'base64'
-
 module AmazonAuthentication
   DIGEST  = OpenSSL::Digest::Digest.new('sha1')
   

@@ -1,8 +1,3 @@
-require 'rubygems'
-require 'net/https'
-require 'amazon_authentication'
-require 'amazon_url_generator'
-
 module AmazonDeliver
 
   def self.get(amazon_email)
