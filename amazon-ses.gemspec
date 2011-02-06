@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = %q{amazon-ses}
-  s.version = "0.0.3"
+  s.version = "0.0.4"
   s.date = %q{2011-2-05}
   s.authors = ["Guille Carlos"]
   s.email = %q{gcarlos1@gmail.com}
