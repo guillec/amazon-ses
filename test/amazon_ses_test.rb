@@ -15,6 +15,7 @@ class AmazonSesTest < Test::Unit::TestCase
       :aws_access_key => "access_key_id",
       :aws_secret_key => "secret_access_key"
     }
+    @first_email = AmazonEmail.new(options_1)
       
     options_2 = { 
       :from => 'from@email.com', 
@@ -24,9 +25,17 @@ class AmazonSesTest < Test::Unit::TestCase
       :aws_secret_key => "secret_access_key",
       :template => File.new("sample_email.erb").read
     }
-    
-    @first_email = AmazonEmail.new(options_1)
     @second_email = AmazonEmail.new(options_2)
+    
+    options_3 = { 
+      :from => 'noreply@setlr.com', 
+      :to => ['to@email.com', 'to_2@email.com', 'to_3@email.com'], 
+      :subject => 'This is the subject of the email',  
+      :aws_access_key => "access_key_id",
+      :aws_secret_key => "secret_access_key",
+      :template => File.new("sample_email.erb").read
+    }
+    @third_email = AmazonEmail.new(options_3)
   end
   
   def test_email_has_correct_data
@@ -44,6 +53,10 @@ class AmazonSesTest < Test::Unit::TestCase
   
   def test_amazon_email_with_template
     #@second_email.send
+  end
+  
+  def test_amazon_email_with_multiple_to
+    assert @third_email.to.size == 3
   end
 
   

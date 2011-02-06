@@ -16,12 +16,28 @@ class AmazonEmail
   def get_binding
     binding
   end 
-   
-  def send
+  
+  def build_email_body
     if self.template
       self.body = ERB.new(self.template).result(self.get_binding)
     end
-    AmazonDeliver.get(self)
+  end
+   
+  def send
+    build_email_body
+    if self.to.class == Array
+      self.send_to_many
+    else
+      AmazonDeliver.get(self)
+    end
+  end
+  
+  def send_to_many
+    email_list = self.to
+    email_list.each do |e|
+      self.to = e
+      AmazonDeliver.get(self)
+    end
   end
   
 end
