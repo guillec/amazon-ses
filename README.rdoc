@@ -50,7 +50,7 @@ Currently you can:
   
     options_3 = {
       :from => 'from@email.com', 
-      :to => ['to@email.com', 'to_2@email.com', 'to_3@email.com']
+      :to => ['to@email.com', 'to_2@email.com', 'to_3@email.com'],
       :subject => 'This is the subject of the email',  
       :aws_access_key => "access_key_id",
       :aws_secret_key => "secret_access_key",

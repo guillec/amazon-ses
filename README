@@ -44,6 +44,20 @@ Currently you can:
     }
     
     e = AmazonEmail.new(options_2) 
+  
+  * Email multiple people
+    You can achieve this by sending a Array in the :to field of the options
+  
+    options_3 = {
+      :from => 'from@email.com', 
+      :to => ['to@email.com', 'to_2@email.com', 'to_3@email.com'],
+      :subject => 'This is the subject of the email',  
+      :aws_access_key => "access_key_id",
+      :aws_secret_key => "secret_access_key",
+      :template => File.new("sample_email.erb").read
+    }
+    e = AmazinEmail.new(options_3)
+
 
 2. Send it
 
