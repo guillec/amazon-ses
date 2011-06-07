@@ -4,7 +4,7 @@ A gem for interfacing with Amazon's Simple Email Service
 ==Features:
 Currently you can:
 * Send a basic raw text email.
-* Send email with a .erb template 
+* Send email with a .erb template (Text or HTML)
 
 
 ==Prerequisite

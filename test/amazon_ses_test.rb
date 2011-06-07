@@ -18,14 +18,15 @@ class AmazonSesTest < Test::Unit::TestCase
     @first_email = AmazonEmail.new(options_1)
       
     options_2 = { 
-      :from => 'from@email.com', 
-      :to => 'to@email.com', 
-      :subject => 'This is the subject of the email',  
+      :from => 'noreply@setlr.com', 
+      :to => 'to@gmail.com', 
+      :subject => 'This is the subject of the email',
       :aws_access_key => "access_key_id",
       :aws_secret_key => "secret_access_key",
       :template => File.new("sample_email.erb").read
     }
-    @second_email = AmazonEmail.new(options_2)
+    #Using test class that extends the AmazonEmail
+    @second_email = TestClass.new(options_2)
     
     options_3 = { 
       :from => 'noreply@setlr.com', 
@@ -48,7 +49,7 @@ class AmazonSesTest < Test::Unit::TestCase
   end
   
   def test_amazon_email_without_template
-    #@first_eamail.send
+    #@first_email.send
   end
   
   def test_amazon_email_with_template

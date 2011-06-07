@@ -1,9 +1,9 @@
 Gem::Specification.new do |s|
   s.name = %q{amazon-ses}
-  s.version = "0.0.4"
-  s.date = %q{2011-02-05}
+  s.version = "0.0.5"
+  s.date = %q{2011-05-20}
   s.authors = ["Guille Carlos"]
-  s.email = %q{gcarlos1@gmail.com}
+  s.email = %q{ramon.g.carlos@gmail.com}
   s.summary = %q{Send a email with Amazon SES.}
   s.homepage = %q{http://github.com/guillec/amazon-ses/}
   s.description = %q{A easy way to interact with Amazon SES.}
